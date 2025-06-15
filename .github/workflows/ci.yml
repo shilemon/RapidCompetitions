@@ -65,7 +65,7 @@ jobs:
           ls -l 
           ls -l ${{ env.DEV_MANIFEST_PATH }}
 
-          sed -i "s|\(image: ${{ env.IMAGE_NAME }}:\).*|\1${{ github.sha }}|" ${{ env.DEV_MANIFEST_PATH }}
+          sed -i "s|\(image: ${IMAGE_NAME}:\).*|\1${GITHUB_SHA}|" "${DEV_MANIFEST_PATH}"
           cat ${{ env.DEV_MANIFEST_PATH }}
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"

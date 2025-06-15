@@ -61,8 +61,10 @@ jobs:
 
       - name: Update manifest image tag
         run: |
-          ls -l
-          sed -i "s|\(image: ${{ env.IMAGE_NAME }}:\).*|\1${{ github.sha }}|" ${{ env.DEV_MANIFEST_PATH }}
+          cd manifests
+          ls -l 
+          ls -l ${{ env.DEV_MANIFEST_PATH }}
+          sed -i "s|\(image: ${{ env.IMAGE_NAME }}:\).*|\1${{ github.sha }}|" manifests/${{ env.DEV_MANIFEST_PATH }}
 
       - name: Commit and push manifest changes
         run: |

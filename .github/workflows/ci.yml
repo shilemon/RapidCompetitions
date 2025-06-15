@@ -65,7 +65,14 @@ jobs:
           ls -l 
           ls -l ${{ env.DEV_MANIFEST_PATH }}
 
-          sed -i "s|\(image: ${IMAGE_NAME}:\).*|\1${GITHUB_SHA}|" "${DEV_MANIFEST_PATH}"
+          echo "Before update:"
+          grep image "$DEV_MANIFEST_PATH"
+
+          sed -i "s|image: ${IMAGE_NAME}:.*|image: ${IMAGE_NAME}:${GITHUB_SHA}|" "$DEV_MANIFEST_PATH"
+
+          echo "After update:"
+          grep image "$DEV_MANIFEST_PATH"
+          
           cat ${{ env.DEV_MANIFEST_PATH }}
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"

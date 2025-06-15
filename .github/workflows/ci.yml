@@ -6,7 +6,7 @@ on:
 
 env:
   IMAGE_NAME: roy35/django-app
-  DEV_MANIFEST_PATH: Dev/Nginx-Deployment.yaml
+  DEV_MANIFEST_PATH: Dev/Nginx-Deployment.yml
   ARGOCD_REPO: roy35-909/ArgoCd-Tutorial
   ARGOCD_BRANCH: main
 

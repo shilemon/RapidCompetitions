@@ -6,9 +6,14 @@ from lottery.models import Category
 from .models import Slider
 from order.models import Winner
 import json
-
+import time
 def home(request):
-
+    print("Hello World")
+    i = 1
+    while(i<1000000):
+        print(i)
+        i+=1
+    i=0
     catagories = Category.objects.all()
     three_days_after = timezone.now() + timedelta(days=3)
     lottery = Slider.objects.filter(is_active = True).order_by('-id')

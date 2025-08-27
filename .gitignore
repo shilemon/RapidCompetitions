@@ -2,6 +2,7 @@
 db.sqlite3
 media
 myvenv
+venv
 env
 myenv/
 myvenv/
